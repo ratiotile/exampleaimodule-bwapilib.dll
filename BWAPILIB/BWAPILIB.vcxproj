@@ -39,6 +39,9 @@
   <PropertyGroup>
     <_ProjectFileVersion>10.0.30319.1</_ProjectFileVersion>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <TargetName>$(ProjectName)d</TargetName>
+  </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <PreBuildEvent />
     <ClCompile>
@@ -136,9 +139,11 @@ COPY /y "$(OutDir)BWAPILib.pdb" "..\lib\BWAPILib.pdb"
       <UseUnicodeResponseFiles>false</UseUnicodeResponseFiles>
     </Lib>
     <PostBuildEvent>
-      <Message>Copying BWAPI library to Developer folder</Message>
-      <Command>
-      </Command>
+      <Message>Copying BWAPILIB to Starcraft folder</Message>
+      <Command>if not "$(BWAPIData)" == "" (
+copy "$(TargetPath)" "$(BWAPIData)\..\"
+)
+</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>

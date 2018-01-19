@@ -1,4 +1,5 @@
 #pragma once
+#include <dll.h>
 #include <BWAPI/Type.h>
 #include <string>
 
@@ -57,12 +58,14 @@ namespace BWAPI
   /// For example, you may not have enough resources to construct a unit.
   /// @see Game::getLastError, Game::setLastError, Errors
   /// @ingroup TypeClasses
-  class Error : public Type<Error, Errors::Enum::Unknown>
+  class DLLEXPORT Error : public Type<Error, Errors::Enum::Unknown>
   {
   public:
     /// @copydoc Type::Type(int)
     constexpr Error(int id = Errors::Enum::None) : Type(id) {}
   };
+
+  DLLEXPORT_TEMPLATE template class DLLEXPORT Type<Error, Errors::Enum::Unknown>;
 
   /// @ingroup Types
   namespace Errors

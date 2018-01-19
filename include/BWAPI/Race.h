@@ -98,6 +98,8 @@ namespace BWAPI
       UnitType getSupplyProvider() const;
   };
 
+  DLLEXPORT_TEMPLATE template class DLLEXPORT Type<Race, Races::Enum::Unknown>;
+
   /// @ingroup Types
   namespace Races
   {

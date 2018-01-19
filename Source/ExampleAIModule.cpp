@@ -8,11 +8,11 @@ void ExampleAIModule::onStart()
 {
   // Hello World!
   Broodwar->sendText("Hello world!");
-  /*
+  
   // Print the map name.
   // BWAPI returns std::string when retrieving a string, don't forget to add .c_str() when printing!
   Broodwar << "The map is " << Broodwar->mapName() << "!" << std::endl;
-
+  
   // Enable the UserInput flag, which allows us to control the bot and type messages.
   Broodwar->enableFlag(Flag::UserInput);
 
@@ -47,7 +47,6 @@ void ExampleAIModule::onStart()
     if ( Broodwar->enemy() ) // First make sure there is an enemy
       Broodwar << "The matchup is " << Broodwar->self()->getRace() << " vs " << Broodwar->enemy()->getRace() << std::endl;
   }
-  */
 }
 
 void ExampleAIModule::onEnd(bool isWinner)
@@ -66,7 +65,7 @@ void ExampleAIModule::onFrame()
   // Display the game frame rate as text in the upper left area of the screen
   Broodwar->drawTextScreen(200, 0,  "FPS: %d", Broodwar->getFPS() );
   Broodwar->drawTextScreen(200, 20, "Average FPS: %f", Broodwar->getAverageFPS() );
-  /*
+  
   // Return if the game is a replay or is paused
   if ( Broodwar->isReplay() || Broodwar->isPaused() || !Broodwar->self() )
     return;
@@ -189,7 +188,7 @@ void ExampleAIModule::onFrame()
     }
 
   } // closure: unit iterator
-  */
+  
 }
 
 void ExampleAIModule::onSendText(std::string text)
@@ -213,7 +212,7 @@ void ExampleAIModule::onReceiveText(BWAPI::Player player, std::string text)
 void ExampleAIModule::onPlayerLeft(BWAPI::Player player)
 {
   // Interact verbally with the other players in the game by
-  // announcing that the other player has left.
+  // announcing that the other player has left.`
   Broodwar->sendText("Goodbye %s!", player->getName().c_str());
 }
 

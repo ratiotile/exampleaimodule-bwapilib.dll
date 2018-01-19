@@ -1,6 +1,7 @@
 #pragma once
 #include <string>
 
+#include <dll.h>
 #include <BWAPI/Position.h>
 #include <BWAPI/Race.h>
 #include <BWAPI/Filters.h>
@@ -30,7 +31,7 @@ namespace BWAPI
   ///
   /// @see Playerset, PlayerType, Race
   /// @ingroup Interface
-  class PlayerInterface : public Interface<PlayerInterface>
+  class DLLEXPORT PlayerInterface : public Interface<PlayerInterface>
   {
   protected:
     virtual ~PlayerInterface() {};
@@ -645,4 +646,5 @@ namespace BWAPI
     /// @since 4.1.2
     bool hasUnitTypeRequirement(UnitType unit, int amount = 1) const;
   };
+  DLLEXPORT_TEMPLATE template class DLLEXPORT Interface<PlayerInterface>;
 };
